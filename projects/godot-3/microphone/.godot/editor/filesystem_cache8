@@ -1,23 +1,23 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1771107074
-default_bus_layout.tres::AudioBusLayout::-1::1771106812::0::1::::<><>::
+::res://::1771148597
+default_bus_layout.tres::AudioBusLayout::7784421378512756814::1771148597::0::1::::<><>::
 default_env.tres::Environment::-1::1771106812::0::1::::<><>::
 icon.png::CompressedTexture2D::2528649090153878059::1771106812::1771107076::1::::<><>::
-::res://src/::1771106812
-device_selection.gd::GDScript::-1::1771106812::0::1::::<>OptionButton<>::
-live_audio.gd::GDScript::-1::1771106812::0::1::::<>VBoxContainer<>::
-sample_scene.gd::GDScript::-1::1771106812::0::1::::<>MarginContainer<>::
-sample_scene.tscn::PackedScene::-1::1771106812::0::1::::<><>::res://src/sample_scene.gd<>res://ui/ui_theme.tres<>res://ui/bar/background.png<>res://ui/bar/foreground.png<>res://src/live_audio.gd<>res://src/device_selection.gd<>res://ui/background.png
-::res://ui/::1771106812
+::res://src/::1771148608
+device_selection.gd::GDScript::-1::1771109556::0::1::::<>OptionButton<>::
+live_audio.gd::GDScript::-1::1771148760::0::1::::<>VBoxContainer<>::
+sample_scene.gd::GDScript::-1::1771109154::0::1::::<>MarginContainer<>::
+sample_scene.tscn::PackedScene::6384150232389834509::1771148608::0::1::::<><>::res://src/sample_scene.gd<>uid://8hdgwvbrvxub::::res://ui/ui_theme.tres<>uid://bnf1di78sh5ml::::res://ui/bar/background.png<>uid://bcs4tpfnybhsk::::res://ui/bar/foreground.png<>res://src/live_audio.gd<>res://src/device_selection.gd<>uid://dovo7muvkkh71::::res://ui/background.png
+::res://ui/::1771148608
 background.png::CompressedTexture2D::8186165640294898566::1771106812::1771107076::1::::<><>::
-ui_theme.tres::Theme::-1::1771106812::0::1::::<><>::res://ui/font/default_font.tres<>res://ui/slider/on.png<>res://ui/slider/off.png
-::res://ui/bar/::1771106812
+ui_theme.tres::Theme::2330876538098817565::1771148608::0::1::::<><>::res://ui/font/default_font.tres<>uid://d00g7rr57aotu::::res://ui/slider/on.png<>uid://h4npiuct8q3h::::res://ui/slider/off.png
+::res://ui/bar/::1771107076
 background.png::CompressedTexture2D::3310782010095739411::1771106812::1771107076::1::::<><>::
 foreground.png::CompressedTexture2D::2565752689613717106::1771106812::1771107076::1::::<><>::
-::res://ui/font/::1771106812
+::res://ui/font/::1771107076
 default_font.tres::FontFile::-1::1771106812::0::1::::<><>::res://ui/font/Kenney Future Narrow.ttf
 Kenney Future Narrow.ttf::FontFile::444951842358520732::1771106812::1771107076::1::::<><>::
 License.txt::TextFile::-1::1771106812::0::1::::<><>::
-::res://ui/slider/::1771106812
+::res://ui/slider/::1771107076
 off.png::CompressedTexture2D::552005419348964855::1771106812::1771107076::1::::<><>::
 on.png::CompressedTexture2D::8966014953807632466::1771106812::1771107076::1::::<><>::

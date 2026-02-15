@@ -1,9 +1,9 @@
 extends VBoxContainer
 
-onready var samples_spinbox = $controls/samples_control/samples_spinbox
-onready var volume_bar = $monitors/volume_monitor/volume_bar
-onready var volume_value = $monitors/volume_monitor/volume_value
-onready var bars = $monitors/frequency_monitor/bars
+@onready var samples_spinbox = $controls/samples_control/samples_spinbox
+@onready var volume_bar = $monitors/volume_monitor/volume_bar
+@onready var volume_value = $monitors/volume_monitor/volume_value
+@onready var bars = $monitors/frequency_monitor/bars
 
 const MIN_DB: int = 80
 
@@ -19,10 +19,10 @@ func _ready() -> void:
 
 func init_spectrum_samples() -> void:
 	for child in bars.get_children():
-		var frequency = int(child.name)
+		var frequency = int(str(child.name))
 		frequency_samples[frequency] = []
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	update_samples_strength()
 	update_samples_frequency()
 
@@ -30,7 +30,7 @@ func update_samples_frequency() -> void:
 	var prev_frequency = 0
 	for i in bars.get_child_count():
 		var bar = bars.get_children()[i]
-		var frequency = int(bar.name)
+		var frequency = int(str(bar.name))
 		var magnitude = spectrum_analyzer.get_magnitude_for_frequency_range(
 			prev_frequency,
 			frequency,
@@ -38,18 +38,18 @@ func update_samples_frequency() -> void:
 		).length()
 
 		# Boost the signal and normalize it
-		var energy = clamp((MIN_DB + linear2db(magnitude))/MIN_DB, 0, 1)
+		var energy = clamp((MIN_DB + linear_to_db(magnitude)) / MIN_DB, 0, 1)
 		frequency_samples[frequency].push_front(energy)
 
 		while frequency_samples[frequency].size() > samples_spinbox.value:
 			frequency_samples[frequency].pop_back()
 
-		bar.get_node('bar').modulate = Color('#3D312E').linear_interpolate(Color('#F0EBDA'), average_array(frequency_samples[frequency]))
+		bar.get_node('bar').modulate = Color('#3D312E').lerp(Color('#F0EBDA'), average_array(frequency_samples[frequency]))
 
 		prev_frequency = frequency
 
 func update_samples_strength() -> void:
-	var sample = db2linear(AudioServer.get_bus_peak_volume_left_db(record_live_index, 0))
+	var sample = db_to_linear(AudioServer.get_bus_peak_volume_left_db(record_live_index, 0))
 	volume_samples.push_front(sample)
 
 	# Use a while loop that way the user can adjust the number of samples at runtime
@@ -58,7 +58,7 @@ func update_samples_strength() -> void:
 		volume_samples.pop_back()
 
 	var sample_avg = average_array(volume_samples)
-	volume_value.text = '%sdb' % round(linear2db(sample_avg))
+	volume_value.text = '%sdb' % round(linear_to_db(sample_avg))
 	volume_bar.value = sample_avg
 
 func average_array(arr: Array) -> float:
